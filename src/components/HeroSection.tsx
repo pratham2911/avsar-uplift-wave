@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Heart, Users, Target } from "lucide-react";
 import heroEducation from "@/assets/hero-education.jpg";
-import volunteersImage from "@/assets/volunteers-community.jpg";
+import volunteersImage from "@/assets/community-learning.jpg";
 import skillsImage from "@/assets/skills-development.jpg";
 
 const slides = [
   {
-    image: heroEducation,
+    image: skillsImage,
     title: "Education for Every Child",
     subtitle: "Providing free, quality education to underprivileged children",
     description: "Join us in creating opportunities for those who need them most"
@@ -19,7 +19,7 @@ const slides = [
     description: "Through health awareness and social empowerment programs"
   },
   {
-    image: skillsImage,
+    image: heroEducation,
     title: "Skill Development",
     subtitle: "Empowering youth and women with future-ready skills",
     description: "Creating pathways to self-reliance and growth"
