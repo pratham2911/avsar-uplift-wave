@@ -233,7 +233,7 @@ const ImpactSection = () => {
         </div>
 
         {/* Quote Section */}
-        <div className="text-center mt-16 fade-in-up">
+        <div className="text-center mt-8 fade-in-up">
           <Card className="card-feature p-8 rounded-2xl max-w-4xl mx-auto relative overflow-hidden bg-white/90 backdrop-blur-md border border-orange-500/50 shadow-[0_0_20px_rgba(255,165,0,0.4)] hover:shadow-[0_0_25px_rgba(255,165,0,0.7)] transition-all duration-300">
             <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-orange-600/10" />
             <div className="relative z-10">

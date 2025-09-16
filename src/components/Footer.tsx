@@ -1,5 +1,6 @@
 import { Heart, Mail, Phone, MapPin, Facebook, Instagram, Youtube, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/avsar_logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -48,8 +49,12 @@ const Footer = () => {
           {/* Organization Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 hero-gradient rounded-lg flex items-center justify-center">
-                <Heart className="h-6 w-6 text-primary-foreground" />
+              <div className="w-10 h-10 flex items-center justify-center overflow-hidden rounded-full">
+                <img
+                  src={logo}
+                  alt="AVSAR Social Foundation Logo"
+                  className="h-10 w-10 object-contain"
+                />
               </div>
               <div>
                 <h3 className="font-bold text-xl text-background">AVSAR Social Foundation</h3>

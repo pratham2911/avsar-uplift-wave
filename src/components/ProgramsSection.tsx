@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Users, Heart, Lightbulb, Target, Globe } from "lucide-react";
+import { BookOpen, Users, Heart, Lightbulb, Target, Globe, ChevronDown } from "lucide-react";
 
 // Import images for the slider (replace with your actual image paths)
 import image1 from "@/assets/kiddos1.jpg";
@@ -90,21 +90,26 @@ const programs = [
 ];
 
 const ProgramsSection = () => {
-  // State for controlling the slider position
   const [offset, setOffset] = useState(0);
+  const [activeCard, setActiveCard] = useState(null);
   const sliderRef = useRef(null);
 
   // Auto-slide functionality (right to left)
   useEffect(() => {
     const interval = setInterval(() => {
       setOffset((prev) => {
-        const newOffset = prev - 1; // Move left by 1px per frame
-        const totalWidth = 200 * sliderImages.length; // 200px per image
-        return newOffset <= -totalWidth ? 0 : newOffset; // Reset to start when reaching the end
+        const newOffset = prev - 1;
+        const totalWidth = 200 * sliderImages.length;
+        return newOffset <= -totalWidth ? 0 : newOffset;
       });
-    }, 16); // ~60fps for smooth animation
-    return () => clearInterval(interval); // Cleanup on unmount
+    }, 16);
+    return () => clearInterval(interval);
   }, []);
+
+  // Toggle card visibility on click
+  const toggleCard = (index) => {
+    setActiveCard(activeCard === index ? null : index);
+  };
 
   return (
     <section id="programs" className="py-20 bg-gradient-to-b from-orange-50/50 to-background">
@@ -122,26 +127,74 @@ const ProgramsSection = () => {
         </div>
 
         {/* Programs Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in-up">
+        <div className="space-y-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:space-y-0 fade-in-up">
+          {programs.map((program, index) => (
+            <div key={index} className="block md:hidden">
+              {/* Mobile: Show title with icon and down arrow, clickable to reveal card */}
+              <button
+                onClick={() => toggleCard(index)}
+                className="w-full text-left p-4 bg-white/80 backdrop-blur-sm border border-orange-500/30 rounded-lg shadow-[0_0_10px_rgba(255,165,0,0.3)] hover:shadow-[0_0_15px_rgba(255,165,0,0.5)] transition-all duration-300 flex items-center justify-between"
+              >
+                <div className="flex items-center">
+                  <div className="hero-gradient p-2 rounded-lg mr-3">
+                    <program.icon className="h-6 w-6 text-primary-foreground" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground group-hover:text-orange-600 transition-colors">
+                    {program.title}
+                  </h3>
+                </div>
+                <ChevronDown
+                  className={`h-6 w-6 text-orange-500 transform transition-transform duration-300 ${
+                    activeCard === index ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {/* Full card content shown when active */}
+              {activeCard === index && (
+                <Card
+                  className="mt-2 p-6 card-feature overflow-hidden relative bg-white/80 backdrop-blur-sm border border-orange-500/30 shadow-[0_0_15px_rgba(255,165,0,0.3)] transition-all duration-300"
+                >
+                  <div className={`absolute inset-0 bg-gradient-to-br ${program.color} opacity-5 transition-opacity`} />
+                  <div className="relative z-10">
+                    <div className="hero-gradient p-4 rounded-xl w-fit mb-6">
+                      <program.icon className="h-8 w-8 text-primary-foreground" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-foreground mb-4 transition-colors">
+                      {program.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-6 leading-relaxed">
+                      {program.description}
+                    </p>
+                    <div className="space-y-2 mb-6">
+                      {program.features.map((feature, featureIndex) => (
+                        <div key={featureIndex} className="flex items-center text-sm text-muted-foreground">
+                          <div className="w-1.5 h-1.5 rounded-full bg-orange-500 mr-3 shrink-0" />
+                          {feature}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </Card>
+              )}
+            </div>
+          ))}
+          {/* Desktop: Show all cards as before */}
           {programs.map((program, index) => (
             <Card
               key={index}
-              className="card-feature p-6 hover-lift group overflow-hidden relative bg-white/80 backdrop-blur-sm border border-orange-500/30 shadow-[0_0_15px_rgba(255,165,0,0.3)] hover:shadow-[0_0_20px_rgba(255,165,0,0.6)] transition-all duration-300"
+              className="hidden md:block card-feature p-6 hover-lift group overflow-hidden relative bg-white/80 backdrop-blur-sm border border-orange-500/30 shadow-[0_0_15px_rgba(255,165,0,0.3)] hover:shadow-[0_0_20px_rgba(255,165,0,0.6)] transition-all duration-300"
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${program.color} opacity-5 group-hover:opacity-10 transition-opacity`} />
               <div className="relative z-10">
-                {/* Icon */}
                 <div className="hero-gradient p-4 rounded-xl w-fit mb-6 group-hover:animate-pulse">
                   <program.icon className="h-8 w-8 text-primary-foreground" />
                 </div>
-                {/* Content */}
                 <h3 className="text-xl font-semibold text-foreground mb-4 group-hover:text-orange-600 transition-colors">
                   {program.title}
                 </h3>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
                   {program.description}
                 </p>
-                {/* Features */}
                 <div className="space-y-2 mb-6">
                   {program.features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-center text-sm text-muted-foreground">
@@ -165,10 +218,9 @@ const ProgramsSection = () => {
                 transform: `translateX(${offset}px)`,
                 transition: offset === 0 ? 'none' : 'transform 0.016s linear',
                 display: 'flex',
-                width: `${200 * sliderImages.length * 2}px`, // Double the images for seamless looping
+                width: `${200 * sliderImages.length * 2}px`,
               }}
             >
-              {/* Render images twice for seamless looping */}
               {[...sliderImages, ...sliderImages].map((image, index) => (
                 <div key={index} className="flex-shrink-0 w-48 h-40 md:h-48 lg:h-56 mx-2">
                   <img

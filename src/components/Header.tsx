@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Heart } from "lucide-react";
-import logo from "@/assets/avsar_logo.png";
+import logo1 from "@/assets/avsrlogo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,20 +17,12 @@ const Header = () => {
       <div className="container mx-auto px-4 lg:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 hero-gradient rounded-lg flex items-center justify-center overflow-hidden">
-              <img
-                src={logo}
-                alt="Logo"
-                className="h-5 w-5 object-contain"
-              />
-            </div>
-            <div>
-              <h1 className="font-bold text-lg text-primary">AVSAR</h1>
-              <p className="text-xs text-muted-foreground -mt-1">
-                Social Foundation
-              </p>
-            </div>
+          <div className="flex items-center">
+            <img
+              src={logo1}
+              alt="AVSAR Social Foundation Logo"
+              className="h-13 w-auto max-w-[180px] object-contain"
+            />
           </div>
 
           {/* Desktop Navigation */}

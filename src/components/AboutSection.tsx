@@ -8,7 +8,6 @@ import image1 from "@/assets/kiddos1.jpg";
 import image2 from "@/assets/kiddos2.jpg";
 import image3 from "@/assets/kiddos3.jpg";
 import image11 from "@/assets/kiddos11.jpg";
-// import image24 from "@/assets/kiddos24.jpg";
 import image8 from "@/assets/kiddos8.jpg";
 
 const sliderImages = [
@@ -16,7 +15,6 @@ const sliderImages = [
   { src: image2, alt: "Community outreach and inclusion" },
   { src: image3, alt: "Youth skill development workshops" },
   { src: image11, alt: "Youth skill development workshops" },
-  // { src: image24, alt: "Youth skill development workshops" },
   { src: image8, alt: "Youth skill development workshops" }
 ];
 
@@ -80,7 +78,7 @@ const AboutSection = () => {
             </p>
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Left Side: Image Slider */}
-              <div className="relative h-64 md:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative h-64 md:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-2xl mt-8">
                 <div className="absolute inset-0">
                   {sliderImages.map((image, index) => (
                     <img
@@ -168,28 +166,9 @@ const AboutSection = () => {
           <h3 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">
             🌟 About <span className="text-gradient">AVSAR Social Foundation</span>
           </h3>
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="relative bg-gradient-to-r from-orange-50 to-amber-50 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
-              <div className="absolute top-0 left-0 w-16 h-16 bg-orange-80 rounded-full opacity-30 -translate-x-8 -translate-y-8" />
-              <div className="absolute bottom-0 right-0 w-24 h-24 bg-amber-80 rounded-full opacity-30 translate-x-12 translate-y-12" />
-              <p className="text-lg text-foreground font-medium mb-6 leading-relaxed relative z-10">
-                Avsar Social Foundation is a beacon of hope, dedicated to uplifting underprivileged children and communities. 
-                Our mission is to provide the opportunity ("Avsar") to learn, grow, and thrive with dignity, fostering a brighter future for all.
-              </p>
-              <p className="text-foreground mb-6 leading-relaxed relative z-10">
-                Founded by <strong className="text-primary">Shivam Singh Rajawat</strong>, a former Border Security Force (BSF) officer, 
-                the foundation was born from his unwavering passion for social change. His vision was sparked by a deep concern for children 
-                denied access to education and basic opportunities, driving him to dedicate his life to this cause.
-              </p>
-              <p className="text-foreground mb-6 leading-relaxed relative z-10">
-                Since our inception, we’ve empowered countless underprivileged children through free education, mentorship, and 
-                community trust. Our work is rooted in compassion, ensuring every step we take builds stronger, more inclusive communities.
-              </p>
-              <blockquote className="border-l-4 border-orange-400 pl-6 italic text-foreground/80 text-lg relative z-10">
-                <span className="text-orange-500">“Education is the most powerful weapon which you can use to change the world.”</span> — Nelson Mandela
-              </blockquote>
-            </div>
-            <div className="text-center relative">
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 items-center">
+            {/* Founder's Image and Content (Displayed first on mobile) */}
+            <div className="order-1 lg:order-2 text-center relative">
               <div className="relative inline-block group">
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-300 to-amber-300 opacity-0 group-hover:opacity-8 rounded-2xl transition-opacity duration-300 blur-md" />
                 <img
@@ -209,6 +188,24 @@ const AboutSection = () => {
                   to grow, and every community can live with dignity.”
                 </p>
               </div>
+            </div>
+            {/* Text Content (Displayed after image on mobile) */}
+            <div className="order-2 lg:order-1 relative bg-gradient-to-r from-orange-50 to-amber-50 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="absolute top-0 left-0 w-16 h-16 bg-orange-80 rounded-full opacity-30 -translate-x-8 -translate-y-8" />
+              <div className="absolute bottom-0 right-0 w-24 h-24 bg-amber-80 rounded-full opacity-30 translate-x-12 translate-y-12" />
+              <p className="text-lg text-foreground font-medium mb-6 leading-relaxed relative z-10">
+                Avsar Social Foundation works to uplift underprivileged children by providing opportunities to learn, grow, and build a brighter future.
+              </p>
+              <p className="text-foreground mb-6 leading-relaxed relative z-10">
+                Founded by <strong className="text-primary">Shivam Singh Rajawat</strong>, a former BSF officer, the foundation was created to bring 
+                education and opportunities to underprivileged children.
+              </p>
+              <p className="text-foreground mb-6 leading-relaxed relative z-10">
+                We empower children through free education, mentorship, and community initiatives, building stronger and more inclusive communities.
+              </p>
+              <blockquote className="border-l-4 border-orange-400 pl-6 italic text-foreground/80 text-lg relative z-10">
+                <span className="text-orange-500">“Education is the most powerful weapon which you can use to change the world.”</span> — Nelson Mandela
+              </blockquote>
             </div>
           </div>
         </div>
