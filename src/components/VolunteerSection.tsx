@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Users, Heart, Lightbulb, Target, CheckCircle, Mail, Phone, User } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
 
 const volunteerOpportunities = [
   {
@@ -53,22 +54,39 @@ const VolunteerSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    try {
+      // Send email using EmailJS
+      await emailjs.send(
+        "service_yj0k8ei", // Replace with your EmailJS Service ID
+        "template_tsfr4ai", // Replace with your EmailJS Template ID
+        formData,
+        "rckUNzErhTbX_183U" // Replace with your EmailJS Public Key
+      );
 
-    toast({
-      title: "Application Submitted Successfully!",
-      description: "Thank you for your interest in volunteering. We'll get back to you soon.",
-    });
+      toast({
+        title: "Application Submitted Successfully!",
+        description: "Thank you for your interest in volunteering. We'll get back to you soon.",
+      });
 
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      interest: "",
-      availability: "",
-      message: ""
-    });
-    setIsSubmitting(false);
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        interest: "",
+        availability: "",
+        message: ""
+      });
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      toast({
+        title: "Submission Failed",
+        description: "There was an error submitting your application. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
