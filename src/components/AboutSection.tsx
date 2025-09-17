@@ -107,30 +107,38 @@ const AboutSection = () => {
               </div>
 
               {/* Right Side: Mission Cards */}
-              <div className="grid md:grid-cols-2 gap-6 text-left">
+              <div className="grid md:grid-cols-2 gap-6 text-center">
                 <div className="card-warm p-6 rounded-xl hover-lift relative overflow-hidden border border-transparent shadow-[0_0_10px_rgba(255,165,0,0.5)] hover:shadow-[0_0_11px_rgba(255,165,0,0.8)] transition-shadow duration-300">
-                  <h3 className="font-semibold text-primary mb-3">Quality Education</h3>
-                  <p className="text-muted-foreground">
-                    Provide free, quality education that nurtures knowledge, creativity, and character.
-                  </p>
+                  <div className="flex flex-col items-center w-full">
+                    <h3 className="font-semibold text-primary mb-2">Quality Education</h3>
+                    <p className="text-muted-foreground">
+                      Provide free, quality education that nurtures knowledge, creativity, and character.
+                    </p>
+                  </div>
                 </div>
                 <div className="card-warm p-6 rounded-xl hover-lift relative overflow-hidden border border-transparent shadow-[0_0_10px_rgba(255,165,0,0.5)] hover:shadow-[0_0_11px_rgba(255,165,0,0.8)] transition-shadow duration-300">
-                  <h3 className="font-semibold text-primary mb-3">Skill Development</h3>
-                  <p className="text-muted-foreground">
-                    Equip youth and women with skills and training that enable them to become self-reliant and future-ready.
-                  </p>
+                  <div className="flex flex-col items-center w-full">
+                    <h3 className="font-semibold text-primary mb-2">Skill Development</h3>
+                    <p className="text-muted-foreground">
+                      Equip youth and women with skills and training that enable them to become self-reliant and future-ready.
+                    </p>
+                  </div>
                 </div>
                 <div className="card-warm p-6 rounded-xl hover-lift relative overflow-hidden border border-transparent shadow-[0_0_10px_rgba(255,165,0,0.5)] hover:shadow-[0_0_11px_rgba(255,165,0,0.8)] transition-shadow duration-300">
-                  <h3 className="font-semibold text-primary mb-3">Health Awareness</h3>
-                  <p className="text-muted-foreground">
-                    Spread awareness on health, hygiene, and social issues, building healthier communities.
-                  </p>
+                  <div className="flex flex-col items-center w-full">
+                    <h3 className="font-semibold text-primary mb-2">Health Awareness</h3>
+                    <p className="text-muted-foreground">
+                      Spread awareness on health, hygiene, and social issues, building healthier communities.
+                    </p>
+                  </div>
                 </div>
                 <div className="card-warm p-6 rounded-xl hover-lift relative overflow-hidden border border-transparent shadow-[0_0_10px_rgba(255,165,0,0.5)] hover:shadow-[0_0_11px_rgba(255,165,0,0.8)] transition-shadow duration-300">
-                  <h3 className="font-semibold text-primary mb-3">Equal Access</h3>
-                  <p className="text-muted-foreground">
-                    Bridge the gap between privilege and underprivilege by ensuring equal access to resources.
-                  </p>
+                  <div className="flex flex-col items-center w-full">
+                    <h3 className="font-semibold text-primary mb-2">Equal Access</h3>
+                    <p className="text-muted-foreground">
+                      Bridge the gap between privilege and underprivilege by ensuring equal access to resources.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
