@@ -138,7 +138,7 @@ const Footer = () => {
               <div className="text-xs text-background/60">
                 <p className="mb-2">Alternative donation methods:</p>
                 <button
-                  onClick={() => window.open('https://www.instagram.com/p/DELRjqIMj5D/?igsh=bG11dWFjNmwxb3l1', '_blank')}
+                  onClick={() => window.open('https://i.postimg.cc/N0G3GTrV/IMG-20250917-210345-030.jpg', '_blank')}
                   className="text-primary hover:underline block mb-1"
                 >
                   View QR Code for donations
