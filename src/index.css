@@ -5,6 +5,25 @@
 /* AVSAR Social Foundation Design System - Orange & White Theme */
 
 @layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* ✅ prevents unwanted horizontal scroll */
+  }
+
+  * {
+    box-sizing: border-box; /* ✅ keeps widths consistent */
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   :root {
     --background: 0 0% 100%;
     --foreground: 25 10% 15%;
@@ -51,21 +70,6 @@
     --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --radius: 1rem;
-
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground font-sans antialiased;
-  }
-
-  html {
-    scroll-behavior: smooth;
   }
 }
 

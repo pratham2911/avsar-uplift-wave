@@ -14,55 +14,50 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 w-full bg-background/95 backdrop-blur-sm border-b border-border z-50">
-      <div className="container mx-auto px-4 lg:px-6">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 sm:h-20">
+          {/* Logo and Tagline */}
+          <div className="flex flex-col sm:flex-row items-center sm:space-x-3">
             <img
               src={logo1}
               alt="AVSAR Social Foundation Logo"
-              className="h-13 w-auto max-w-[180px] object-contain"
+              className="h-10 sm:h-12 w-auto max-w-[180px] object-contain"
             />
+            
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-4 lg:space-x-6">
             <button
               onClick={() => scrollToSection("home")}
-              className="text-foreground hover:text-primary transition-colors"
+              className="text-foreground hover:text-primary transition-colors text-sm lg:text-base"
             >
               Home
             </button>
             <button
               onClick={() => scrollToSection("about")}
-              className="text-foreground hover:text-primary transition-colors"
+              className="text-foreground hover:text-primary transition-colors text-sm lg:text-base"
             >
               About
             </button>
             <button
               onClick={() => scrollToSection("programs")}
-              className="text-foreground hover:text-primary transition-colors"
+              className="text-foreground hover:text-primary transition-colors text-sm lg:text-base"
             >
               Programs
             </button>
             <button
               onClick={() => scrollToSection("impact")}
-              className="text-foreground hover:text-primary transition-colors"
+              className="text-foreground hover:text-primary transition-colors text-sm lg:text-base"
             >
               Impact
             </button>
             <button
               onClick={() => scrollToSection("volunteer")}
-              className="text-foreground hover:text-primary transition-colors"
+              className="text-foreground hover:text-primary transition-colors text-sm lg:text-base"
             >
               Volunteer
             </button>
-            {/* <button
-              onClick={() => scrollToSection("contact")}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              Contact
-            </button> */}
           </nav>
 
           {/* CTA Button */}
@@ -76,7 +71,7 @@ const Header = () => {
                   "_blank"
                 )
               }
-              className="hover-glow"
+              className="hover-glow px-3"
             >
               <Heart className="h-4 w-4 mr-2" />
               Donate Now
@@ -98,41 +93,41 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-16 left-0 right-0 bg-background border-b border-border shadow-lg">
+          <div className="md:hidden absolute top-16 sm:top-20 left-0 right-0 bg-background border-b border-border shadow-lg min-h-screen sm:min-h-fit">
             <nav className="flex flex-col p-4 space-y-4">
               <button
                 onClick={() => scrollToSection("home")}
-                className="text-left text-foreground hover:text-primary transition-colors py-2"
+                className="text-left text-foreground hover:text-primary transition-colors py-2 text-base"
               >
                 Home
               </button>
               <button
                 onClick={() => scrollToSection("about")}
-                className="text-left text-foreground hover:text-primary transition-colors py-2"
+                className="text-left text-foreground hover:text-primary transition-colors py-2 text-base"
               >
                 About
               </button>
               <button
                 onClick={() => scrollToSection("programs")}
-                className="text-left text-foreground hover:text-primary transition-colors py-2"
+                className="text-left text-foreground hover:text-primary transition-colors py-2 text-base"
               >
                 Programs
               </button>
               <button
                 onClick={() => scrollToSection("impact")}
-                className="text-left text-foreground hover:text-primary transition-colors py-2"
+                className="text-left text-foreground hover:text-primary transition-colors py-2 text-base"
               >
                 Impact
               </button>
               <button
                 onClick={() => scrollToSection("volunteer")}
-                className="text-left text-foreground hover:text-primary transition-colors py-2"
+                className="text-left text-foreground hover:text-primary transition-colors py-2 text-base"
               >
                 Volunteer
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
-                className="text-left text-foreground hover:text-primary transition-colors py-2"
+                className="text-left text-foreground hover:text-primary transition-colors py-2 text-base"
               >
                 Contact
               </button>

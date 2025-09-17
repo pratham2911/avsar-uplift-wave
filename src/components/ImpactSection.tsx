@@ -111,9 +111,11 @@ const ImpactSection = () => {
 
   useEffect(() => {
     const adjustVideoHeight = () => {
-      if (cardsRef.current && videosRef.current) {
+      if (window.innerWidth >= 1024 && cardsRef.current && videosRef.current) {
         const cardsHeight = cardsRef.current.getBoundingClientRect().height;
         videosRef.current.style.height = `${cardsHeight}px`;
+      } else if (videosRef.current) {
+        videosRef.current.style.height = 'auto';
       }
     };
 
@@ -124,7 +126,7 @@ const ImpactSection = () => {
 
   return (
     <section id="impact" className="py-20 bg-gradient-to-b from-orange-50/50 to-background">
-      <div className="container mx-auto px-4 lg:px-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-16 fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 relative">
@@ -179,9 +181,9 @@ const ImpactSection = () => {
           </h3>
           <div className="grid lg:grid-cols-2 gap-8">
             {/* YouTube Videos (Left Side) */}
-            <div ref={videosRef} className="flex flex-col justify-start items-center space-y-6">
+            <div ref={videosRef} className="flex flex-col justify-start items-center space-y-4 sm:space-y-6 w-full">
               {/* First Video */}
-              <Card className="w-full max-w-md p-4 bg-white/80 backdrop-blur-sm border border-orange-500/30 shadow-[0_0_15px_rgba(255,165,0,0.3)] hover:shadow-[0_0_20px_rgba(255,165,0,0.6)] transition-all duration-300">
+              <Card className="w-full max-w-full sm:max-w-md p-4 bg-white/80 backdrop-blur-sm border border-orange-500/30 shadow-[0_0_15px_rgba(255,165,0,0.3)] hover:shadow-[0_0_20px_rgba(255,165,0,0.6)] transition-all duration-300">
                 <div className="relative w-full" style={{ paddingBottom: "56.25%" /* 16:9 aspect ratio */ }}>
                   <iframe
                     src="https://www.youtube.com/embed/0JXqBqkcYxk?si=-d3SXlFQnta3_4U_&autoplay=1&mute=1"
@@ -193,7 +195,7 @@ const ImpactSection = () => {
                 </div>
               </Card>
               {/* Second Video */}
-              <Card className="w-full max-w-md p-4 bg-white/80 backdrop-blur-sm border border-orange-500/30 shadow-[0_0_15px_rgba(255,165,0,0.3)] hover:shadow-[0_0_20px_rgba(255,165,0,0.6)] transition-all duration-300">
+              <Card className="w-full max-w-full sm:max-w-md p-4 bg-white/80 backdrop-blur-sm border border-orange-500/30 shadow-[0_0_15px_rgba(255,165,0,0.3)] hover:shadow-[0_0_20px_rgba(255,165,0,0.6)] transition-all duration-300">
                 <div className="relative w-full" style={{ paddingBottom: "56.25%" /* 16:9 aspect ratio */ }}>
                   <iframe
                     src="https://www.youtube.com/embed/Zyo1DtBWhaA?si=zEuQCuOwJtnlvY5C&autoplay=1&mute=1"
@@ -206,11 +208,11 @@ const ImpactSection = () => {
               </Card>
             </div>
             {/* Achievements Cards (Right Side) */}
-            <div ref={cardsRef} className="space-y-6">
+            <div ref={cardsRef} className="space-y-4 sm:space-y-6 w-full">
               {achievements.map((achievement, index) => (
                 <Card
                   key={index}
-                  className="card-warm p-6 hover-lift relative overflow-hidden bg-white/80 backdrop-blur-sm border border-orange-500/30 shadow-[0_0_15px_rgba(255,165,0,0.3)] hover:shadow-[0_0_20px_rgba(255,165,0,0.6)] transition-all duration-300"
+                  className="card-warm p-4 sm:p-6 hover-lift relative overflow-hidden bg-white/80 backdrop-blur-sm border border-orange-500/30 shadow-[0_0_15px_rgba(255,165,0,0.3)] hover:shadow-[0_0_20px_rgba(255,165,0,0.6)] transition-all duration-300"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-orange-100/10 to-orange-200/10 group-hover:opacity-20 transition-opacity" />
                   <div className="relative z-10 flex items-start space-x-4">
